@@ -1,0 +1,209 @@
+#include <WiFi.h>
+#include <Wire.h>
+#include <Adafruit_SHT31.h>  // For SHT31 sensor
+#include <Adafruit_ADS1X15.h> // For radiation sensor
+#include <ThingSpeak.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <HTTPClient.h>
+#include <PubSubClient.h> // For MQTT communication
+
+// WiFi credentials
+const char* ssid = "ebhome 2.4";
+const char* password = "9699020996";
+WiFiClient client;
+
+// MQTT broker details
+const char* mqtt_server = "192.168.0.102";
+const int mqtt_port = 1883;
+const char* mqtt_user = "mqtt-user";
+const char* mqtt_password = "1234";
+const char* mqttTopicOpen = "/greenhouse/outside/irrigation/solenoid8/open";
+const char* mqttTopicClose = "/greenhouse/outside/irrigation/solenoid8/close";
+PubSubClient mqttClient(client);
+
+// NTP Time Synchronization
+const long utcOffsetInSeconds = 3600 * 2; // UTC+2
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", utcOffsetInSeconds);
+String formattedTime;
+
+// Sensor declarations
+Adafruit_SHT31 sht31 = Adafruit_SHT31();
+Adafruit_ADS1115 ads;
+
+// Variables for sensors and calculations
+const int WIND_SENSOR_PIN = A0;
+float sensorValue, voltage, wind_speed;
+float ET = 5.0; // Default Evapotranspiration (if ThingSpeak fails)
+float Kc = 1.0; // Fixed Crop Coefficient for Tomato Season
+float area = 10; // Area in m²
+float efficiency = 0.95;
+float flow_rate = 0.1; // L/min
+float wateringTime; // Seconds
+int lastWateringDay = -1;  // Track the day when watering was performed
+
+// ThingSpeak credentials
+unsigned long channelID = 2804506;
+const char* writeApiKey = "GB6Q5ZQYX6T4LATT";
+const char* readApiKey = "K97I6D8WEXKL0SXQ";
+
+// Setup MQTT connection
+void setupMQTT() {
+  mqttClient.setServer(mqtt_server, mqtt_port);
+}
+
+// Reconnect to MQTT broker if disconnected
+bool reconnectMQTT() {
+  if (!mqttClient.connected()) {
+    Serial.println("Attempting to connect to MQTT Broker...");
+    String clientId = "ESP32Client-" + String(random(0xffff), HEX);
+    if (mqttClient.connect(clientId.c_str(), mqtt_user, mqtt_password)) {
+      Serial.println("MQTT Connected.");
+      return true;
+    } else {
+      Serial.println("MQTT Connection failed. Will retry later.");
+      return false;
+    }
+  }
+  return true;
+}
+
+// Read ET from ThingSpeak (Field 5)
+void readETFromThingSpeak() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = "http://api.thingspeak.com/channels/" + String(channelID) + "/fields/5/last?api_key=" + String(readApiKey);
+    http.begin(url);
+    int httpCode = http.GET();
+    if (httpCode > 0) {
+      String payload = http.getString();
+      ET = payload.toFloat();
+      Serial.print("ET from ThingSpeak: ");
+      Serial.println(ET);
+    } else {
+      Serial.println("Failed to read ET from ThingSpeak. Using default value.");
+    }
+    http.end();
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to WiFi!");
+
+  // Initialize sensors and services
+  ThingSpeak.begin(client);
+  if (!sht31.begin(0x44)) {
+    Serial.println("Couldn't find SHT31 sensor!");
+    while (1);
+  }
+  ads.setGain(GAIN_FOUR);
+  if (!ads.begin()) {
+    Serial.println("Failed to initialize ADS1115.");
+    while (1);
+  }
+
+  // Initialize NTP and MQTT
+  timeClient.begin();
+  setupMQTT();
+}
+
+void loop() {
+  // Update NTP time
+  timeClient.update();
+  formattedTime = timeClient.getFormattedTime();
+  int currentHour = timeClient.getHours();
+  int currentDay = timeClient.getDay();  // Day of the week (0 = Sunday)
+
+  // Perform daily watering around 6 AM
+  if (currentHour >= 6 && currentDay != lastWateringDay) {
+    // Read ET from ThingSpeak
+    readETFromThingSpeak();
+
+    // Ensure ET has a valid value
+    if (ET <= 0) {
+      ET = 5.0; // Default ET value
+    }
+
+    // Calculate watering time
+    wateringTime = (ET * Kc  * area)/ efficiency / flow_rate;
+
+    // Attempt to connect to MQTT
+    if (reconnectMQTT()) {
+      // Open Solenoid
+      mqttClient.publish(mqttTopicOpen, "1");
+      Serial.println("Published MQTT: Open Solenoid 8");
+
+      // Non-blocking delay for watering
+      unsigned long startTime = millis();
+      while (millis() - startTime < wateringTime * 1000) {
+        mqttClient.loop();
+      }
+
+      // Close Solenoid
+      mqttClient.publish(mqttTopicClose, "0");
+      Serial.println("Published MQTT: Close Solenoid 8");
+    } else {
+      Serial.println("Skipping MQTT commands due to connection failure.");
+    }
+
+    // Mark watering as completed for the day
+    lastWateringDay = currentDay;
+  }
+
+  // Ensure MQTT client stays connected
+  mqttClient.loop();
+
+  // Read Radiation Sensor (ADS1115)
+  int16_t rad_results = ads.readADC_Differential_0_1();
+  float radiation = ((rad_results * 0.015625) / 0.260);
+
+  // Read Temperature and Humidity (SHT31)
+  float temperature = sht31.readTemperature();
+  float humidity = sht31.readHumidity();
+
+  // Read Wind Sensor
+  sensorValue = analogRead(WIND_SENSOR_PIN);  // Read ADC
+  voltage = sensorValue * (3.3 / 4095.0);  // Convert ADC value to voltage
+ if (voltage >= 0.4) { 
+       wind_speed = ((voltage - 0.4) / 1.6) * 32.4;}
+       else {wind_speed=0;}
+
+  int randomValue = random(1, 10);
+
+  // Print Data to Serial Monitor
+  Serial.println("------------------------------------------------");
+  Serial.print("Timestamp: "); Serial.println(formattedTime);
+  Serial.print("Radiation: "); Serial.print(radiation); Serial.println(" W/m²");
+  Serial.print("Temperature (°C): "); Serial.println(temperature);
+  Serial.print("Humidity (%): "); Serial.println(humidity);
+  Serial.print("Wind Speed (m/s): "); Serial.println(wind_speed);
+  Serial.print("ET (mm/day): "); Serial.println(ET);
+  Serial.print("Watering Time (s): "); Serial.println(wateringTime);
+  Serial.println("------------------------------------------------");
+
+  // Send Data to ThingSpeak
+  ThingSpeak.setField(1, temperature);
+  ThingSpeak.setField(2, humidity);
+  ThingSpeak.setField(3, radiation);
+  ThingSpeak.setField(4, wind_speed);
+  ThingSpeak.setField(5, randomValue);
+  ThingSpeak.setStatus(formattedTime);
+
+  int httpCode = ThingSpeak.writeFields(channelID, writeApiKey);
+  if (httpCode == 200) {
+    Serial.println("Data successfully sent to ThingSpeak.");
+  } else {
+    Serial.println("Failed to send data to ThingSpeak. HTTP Code: " + String(httpCode));
+  }
+
+  // every 10 min
+  delay(600000);
+}
