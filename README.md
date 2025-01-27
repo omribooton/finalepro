@@ -97,7 +97,6 @@ int num_drips = 2; // Number of drippers in the irrigation system, update accord
 </script>
 
 
-
 * Wi-Fi Adjustment:
 
   const char* ssid = "your_wifi_name";      // Change to the new WiFi network name
