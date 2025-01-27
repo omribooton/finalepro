@@ -74,6 +74,7 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
   const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
 
 * MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
+  
 
 [et_penman.py](https://github.com/omribooton/finalepro/blob/main/et_penman.py):
 
@@ -85,18 +86,24 @@ Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h
 
 * Penman calculation Parameters (Elevation,Latitude and pressure) Adjustment:
 
-elevation, latitude = 31.0, pyet.utils.deg_to_rad(32.0073)  # Replace with local elevation and latitude
+  elevation, latitude = 31.0, pyet.utils.deg_to_rad(32.0073)  # Replace with local elevation and latitude
 
-pressure=101.3 # Replace with local pressure
+  pressure=101.3 # Replace with local pressure
 
 **MQTT Setup:**
+
 Make sure you have an MQTT broker set up and configured. Update the ESP32 code with the following details:
 
 const char* mqtt_server = "your_mqtt_broker_ip";
+
 const int mqtt_port = 1883;
+
 const char* mqtt_user = "your_mqtt_username";
+
 const char* mqtt_password = "your_mqtt_password";
+
 const char* mqttTopic = "/new/location/irrigation/solenoid";
+
 
 **ThingSpeak Setup:**
 Ensure you have created a ThingSpeak channel to store and retrieve data. Update the code with your API keys:
