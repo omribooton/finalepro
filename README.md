@@ -18,6 +18,7 @@ Using the ET values, the system determines the required irrigation duration and 
 <img width="951" alt="SENSORS" src="https://github.com/user-attachments/assets/5455995b-8eac-4985-8a76-5bf714dd532c" />
 
 * In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through vcc and GND.
+  
 
 **Hardware:**
 * [ESP 32](https://www.espressif.com/en/products/socs/esp32)
@@ -52,6 +53,8 @@ Using the ET values, the system determines the required irrigation duration and 
 
 
 
+
+
 **Code:**
 
 We have two separate code files:
@@ -74,13 +77,14 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
   const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
 
 * MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
+
   
 
 [et_penman.py](https://github.com/omribooton/finalepro/blob/main/et_penman.py):
 
  This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
  
-Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
+**Required Arduino Libraries:** WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
 
 **If you use the code, pay attention to the following settings:** 
 
@@ -105,15 +109,23 @@ const char* mqtt_password = "your_mqtt_password";
 const char* mqttTopic = "/new/location/irrigation/solenoid";
 
 
+
 **ThingSpeak Setup:**
 Ensure you have created a ThingSpeak channel to store and retrieve data. Update the code with your API keys:
+
 unsigned long channelID = your_channel_id;
+
 const char* writeApiKey = "your_write_api_key";
+
 const char* readApiKey = "your_read_api_key";
 
+
 In the Python script (et_penman.py), update the following lines with your ThingSpeak credentials:
+
 channel_id = "your_channel_id"
+
 read_api_key = "your_read_api_key"
+
 write_api_key = "your_write_api_key"
 
 
