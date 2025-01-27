@@ -25,7 +25,7 @@ Using the ET values, the system determines the required irrigation duration and 
 * [RY-EBN-1 PAR Sensor, Sensitivity of 260.03 μV/μ*mol*m2*s ](https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html)
 * [SHT 31 RH and temperature sensor ](https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385)
 * [QS-FS01 wind sensor](https://arduino.steamedu123.com/entry/QS-FS01-Wind-speed-sensor)
-* [ADS 1115 ](https://www.adafruit.com/product/1083)
+* [ADS 1115 ](https://www.adafruit.com/product/1085)
 * [12V Power source](https://www.iec.co.il/home)
 * Electric box
 * Electric wires
