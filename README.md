@@ -13,6 +13,9 @@ Using the ET values, the system determines the required irrigation duration and 
 
 <img width="951" alt="SENSORS" src="https://github.com/user-attachments/assets/5455995b-8eac-4985-8a76-5bf714dd532c" />
 
+* In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through vcc and GND.
+
+
 **Hardware:**
 * ESP 32  https://www.espressif.com/en/products/socs/esp32
 * RY-EBN-1 PAR Sensor https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html
@@ -22,6 +25,8 @@ Using the ET values, the system determines the required irrigation duration and 
 * 12V Power source https://www.iec.co.il/home
 * Electric box
 * Electric wires
+* Solder breadboard
+
 
 
 
