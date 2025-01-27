@@ -1,4 +1,4 @@
-**Agrotech Lab finan project: Automated Irrigation System Using Evapotranspiration Data**
+**Agrotech Lab final project: Automated Irrigation System Using Evapotranspiration Data**
 
 <img width="246" alt="esp32" src="https://github.com/user-attachments/assets/5f7b359c-5499-44b1-b602-41057d490905" />
 
