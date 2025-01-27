@@ -75,8 +75,9 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
 * Time Zone Adjustment:
   
   const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
+  
 
-  * Irrigation Calculation Parameters Adjustment:
+* Irrigation Calculation Parameters Adjustment:
 
 float ET = 2.4;  // Default evapotranspiration value, adjust based on climate conditions
 
