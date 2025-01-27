@@ -24,10 +24,10 @@ Using the ET values, the system determines the required irrigation duration and 
 **Hardware:**
 * [ESP 32](https://www.espressif.com/en/products/socs/esp32)
 * [RY-EBN-1 PAR Sensor](https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html)
-*  [SHT 31](https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385)
-*  [WIND]()
+* [SHT 31](https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385)
+* [WIND]()
 * [ADS 1115 ](https://www.adafruit.com/product/1083)
-*  [12V Power source](https://www.iec.co.il/home)
+* [12V Power source](https://www.iec.co.il/home)
 * Electric box
 * Electric wires
 * Solder breadboard
@@ -38,10 +38,10 @@ Using the ET values, the system determines the required irrigation duration and 
 
 We have two separate code files:
 
-esp 32 Code: This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
+[esp 32 Code](https://www.adafruit.com/product/1083): This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 Required Python Libraries: requests, pandas, pyet 
 
-et_penman.py: This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
+[et_penman.py](https://www.adafruit.com/product/1083): This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
 Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
 
 
