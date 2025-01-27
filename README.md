@@ -20,5 +20,9 @@ Using the ET values, the system determines the required irrigation duration and 
 * WIND
 * ADS 1115 https://www.adafruit.com/product/1083
 * 12V Power source https://www.iec.co.il/home
+* Electric box
+* Electric wires
+
+
 
   
