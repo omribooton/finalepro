@@ -58,20 +58,20 @@ We have two separate code files:
 
 [esp 32 Code](https://github.com/omribooton/finalepro/blob/main/esp%2032%20code):
 
-This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
+This code runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 
-Required Python Libraries: requests, pandas, pyet 
+**Required Python Libraries:** requests, pandas, pyet 
 
 **If you use the code, pay attention to the following settings:** 
 * Wi-Fi Adjustment:
 
-const char* ssid = "your_wifi_name";      // Change to the new WiFi network name
+  const char* ssid = "your_wifi_name";      // Change to the new WiFi network name
 
-const char* password = "your_wifi_password";  // Change to the new WiFi password
+  const char* password = "your_wifi_password";  // Change to the new WiFi password
 
 * Time Zone Adjustment:
   
-const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
+  const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
 
 * MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
 
