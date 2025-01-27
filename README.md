@@ -110,10 +110,13 @@ const char* readApiKey = "your_read_api_key"; // Update with your read API key
 
 </details>
 
-<img width="399" alt="GAIN" src="https://github.com/user-attachments/assets/1fde9dd3-aaf2-4fdb-b2c2-7234808f8fa0" />
 
 
 **Gain factor**
+
+
+<img width="399" alt="GAIN" src="https://github.com/user-attachments/assets/1fde9dd3-aaf2-4fdb-b2c2-7234808f8fa0" />
+
 
 * The ADS1115 is a 16-bit ADC, meaning it provides 65,536 discrete levels (from -32,768 to +32,767 in differential mode).
   
