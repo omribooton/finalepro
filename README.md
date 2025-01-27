@@ -17,7 +17,7 @@ Using the ET values, the system determines the required irrigation duration and 
 
 <img width="951" alt="SENSORS" src="https://github.com/user-attachments/assets/5455995b-8eac-4985-8a76-5bf714dd532c" />
 
-* In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through vcc and GND.
+* In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through VCC and GND.
   
 
 **Hardware:**
