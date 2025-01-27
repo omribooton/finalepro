@@ -64,6 +64,7 @@ We have two separate code files:
 This code runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 
 **Required Python Libraries:** 
+
 requests, pandas, pyet 
 
 **If you are using the code, make the following adjustments:** 
@@ -132,6 +133,10 @@ write_api_key = "your_write_api_key"  # Replace with your write API key
 </details>
 
 ---
+**Experiment:**  
+
+**thingspeak data:**  
+<img width="419" alt="ts" src="https://github.com/user-attachments/assets/946bfa38-f55b-46bd-bf19-354a687b4568" />
 
 
 
