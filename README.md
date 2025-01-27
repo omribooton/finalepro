@@ -53,26 +53,41 @@ Using the ET values, the system determines the required irrigation duration and 
 
 
 **Code:**
+
 We have two separate code files:
 
-[esp 32 Code](https://github.com/omribooton/finalepro/blob/main/esp%2032%20code): This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
+[esp 32 Code](https://github.com/omribooton/finalepro/blob/main/esp%2032%20code):
+
+This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 
 Required Python Libraries: requests, pandas, pyet 
 
 **If you use the code, pay attention to the following settings:** 
-*Wi-Fi Adjustment:
+* Wi-Fi Adjustment:
+
 const char* ssid = "your_wifi_name";      // Change to the new WiFi network name
+
 const char* password = "your_wifi_password";  // Change to the new WiFi password
 
-*Time Zone Adjustment:
+* Time Zone Adjustment:
+  
 const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
 
-*MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
+* MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
 
 [et_penman.py](https://github.com/omribooton/finalepro/blob/main/et_penman.py):
+
  This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
  
 Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
+
+**If you use the code, pay attention to the following settings:** 
+
+* Penman calculation Parameters (Elevation,Latitude and pressure) Adjustment:
+
+elevation, latitude = 31.0, pyet.utils.deg_to_rad(32.0073)  # Replace with local elevation and latitude
+
+pressure=101.3 # Replace with local pressure
 
 **MQTT Setup:**
 Make sure you have an MQTT broker set up and configured. Update the ESP32 code with the following details:
