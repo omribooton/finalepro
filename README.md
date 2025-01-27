@@ -35,24 +35,31 @@ Using the ET values, the system determines the required irrigation duration and 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px;">
   <!-- First row -->
   <a href="https://github.com/user-attachments/assets/26b3903f-d668-451e-8018-17017d28efcf" target="_blank">
-    <img src="https://github.com/user-attachments/assets/26b3903f-d668-451e-8018-17017d28efcf" alt="PAR" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+    <img src="https://github.com/user-attachments/assets/26b3903f-d668-451e-8018-17017d28efcf" alt="PAR" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
   </a>
   
   <a href="https://github.com/user-attachments/assets/8976c230-f755-48e7-b685-c276087f597b" target="_blank">
-    <img src="https://github.com/user-attachments/assets/8976c230-f755-48e7-b685-c276087f597b" alt="SHT" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+    <img src="https://github.com/user-attachments/assets/8976c230-f755-48e7-b685-c276087f597b" alt="SHT" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
   </a>
 
   <a href="https://github.com/user-attachments/assets/7429dfe7-0586-4658-b7b3-06668f8e92d7" target="_blank">
-    <img src="https://github.com/user-attachments/assets/7429dfe7-0586-4658-b7b3-06668f8e92d7" alt="WIND" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+    <img src="https://github.com/user-attachments/assets/7429dfe7-0586-4658-b7b3-06668f8e92d7" alt="WIND" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
   </a>
 
   <!-- Second row -->
-  <img width="400" alt="SYS" src="https://github.com/user-attachments/assets/6c9dea70-6d6b-405a-903b-f236a2371ec3" style="border: 2px solid #000; border-radius: 5px;"/>
+  <a href="https://github.com/user-attachments/assets/6c9dea70-6d6b-405a-903b-f236a2371ec3" target="_blank">
+    <img src="https://github.com/user-attachments/assets/6c9dea70-6d6b-405a-903b-f236a2371ec3" alt="SYS" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
   
-  <img width="400" alt="B" src="https://github.com/user-attachments/assets/69db548d-5784-49d4-b3e1-46fb3da15f47" style="border: 2px solid #000; border-radius: 5px;"/>
+  <a href="https://github.com/user-attachments/assets/69db548d-5784-49d4-b3e1-46fb3da15f47" target="_blank">
+    <img src="https://github.com/user-attachments/assets/69db548d-5784-49d4-b3e1-46fb3da15f47" alt="B" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
   
-  <img width="400" alt="IN" src="https://github.com/user-attachments/assets/c53e7cf4-2067-4d23-8bcf-8beca8f979ef" style="border: 2px solid #000; border-radius: 5px;"/>
+  <a href="https://github.com/user-attachments/assets/c53e7cf4-2067-4d23-8bcf-8beca8f979ef" target="_blank">
+    <img src="https://github.com/user-attachments/assets/c53e7cf4-2067-4d23-8bcf-8beca8f979ef" alt="IN" width="300" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
 </div>
+
 
 
 **Code:**
