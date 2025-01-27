@@ -76,7 +76,24 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
   
   const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
 
+  * Irrigation Calculation Parameters Adjustment:
+
+float ET = 2.4;  // Default evapotranspiration value, adjust based on climate conditions
+
+float Kc = 1.6;  // Crop coefficient, change according to the specific crop type
+
+float area = 1.5;  // The area of the irrigation zone in square meters, modify as needed
+
+float efficiency = 0.9;  // Irrigation system efficiency (e.g., 0.9 for 90% efficiency)
+
+float flow_rate = 4;  // Flow rate of the irrigation system in liters per hour per dripper
+
+int num_drips = 2;  // Number of drippers in the irrigation system, update accordingly
+
+
+
 * MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
+
 
   
 
@@ -93,6 +110,8 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
   elevation, latitude = 31.0, pyet.utils.deg_to_rad(32.0073)  # Replace with local elevation and latitude
 
   pressure=101.3 # Replace with local pressure
+  
+
 
 **MQTT Setup:**
 
