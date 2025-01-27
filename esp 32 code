@@ -137,7 +137,7 @@ void setup() {
         Serial.println("Couldn't find SHT31 sensor!");
         while (1);
     }
-    ads.setGain(GAIN_FOUR);
+    ads.setGain(GAIN_EIGHT);
     if (!ads.begin()) {
         Serial.println("Failed to initialize ADS1115.");
         while (1);
