@@ -59,11 +59,20 @@ We have two separate code files:
 
 Required Python Libraries: requests, pandas, pyet 
 
+**If you use the code, pay attention to the following settings:** 
+*Wi-Fi Adjustment:
+const char* ssid = "your_wifi_name";      // Change to the new WiFi network name
+const char* password = "your_wifi_password";  // Change to the new WiFi password
+
+*Time Zone Adjustment:
+const long utcOffsetInSeconds = 3600 * new_offset;  // Set the appropriate UTC offset
+
+*MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page .
+
 [et_penman.py](https://github.com/omribooton/finalepro/blob/main/et_penman.py):
  This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
  
 Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
-
 
 **MQTT Setup:**
 Make sure you have an MQTT broker set up and configured. Update the ESP32 code with the following details:
@@ -86,7 +95,7 @@ read_api_key = "your_read_api_key"
 write_api_key = "your_write_api_key"
 
 
-**LET'S GET STARTED:** 
+
 
 
   
