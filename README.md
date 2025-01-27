@@ -38,10 +38,13 @@ Using the ET values, the system determines the required irrigation duration and 
 
 We have two separate code files:
 
-[esp 32 Code](https://www.adafruit.com/product/1083): This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
+[esp 32 Code](https://github.com/omribooton/finalepro/blob/main/esp%2032%20code): This runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
+
 Required Python Libraries: requests, pandas, pyet 
 
-[et_penman.py](https://www.adafruit.com/product/1083): This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
+[et_penman.py](https://github.com/omribooton/finalepro/blob/main/et_penman.py):
+ This Python script calculates the Penman evapotranspiration (ET) value using data retrieved from ThingSpeak and uploads the calculated ET value back to ThingSpeak.
+ 
 Required Arduino Libraries: WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
 
 
