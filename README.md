@@ -63,7 +63,8 @@ We have two separate code files:
 
 This code runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 
-**Required Python Libraries:** requests, pandas, pyet 
+**Required Python Libraries:** 
+requests, pandas, pyet 
 
 **If you are using the code, make the following adjustments:** 
 
@@ -115,7 +116,7 @@ WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h,
 **If you are using the code, make the following adjustments:** 
 
 <details>
-<summary>Click to toggle Penman calculation Parameters</summary>
+<summary>Click to toggle adjustments</summary>
 
 ```python
 # Penman calculation Parameters (Elevation, Latitude and Pressure) Adjustment
