@@ -85,11 +85,22 @@ float area = 1.5; // The area of the irrigation zone in square meters, modify as
 float efficiency = 0.9; // Irrigation system efficiency (e.g., 0.9 for 90% efficiency)
 float flow_rate = 4; // Flow rate of the irrigation system in liters per hour per dripper
 int num_drips = 2; // Number of drippers in the irrigation system, update accordingly
+
+// MQTT Setup
+const char* mqtt_server = "your_mqtt_broker_ip"; // Update with your MQTT broker IP
+const int mqtt_port = 1883; // Update the broker port if needed
+const char* mqtt_user = "your_mqtt_username"; // Update with your MQTT username
+const char* mqtt_password = "your_mqtt_password"; // Update with your MQTT password
+const char* mqttTopic = "/new/location/irrigation/solenoid"; // Update the MQTT topic
+
+// ThingSpeak Setup
+unsigned long channelID = your_channel_id; // Update with your ThingSpeak channel ID
+const char* writeApiKey = "your_write_api_key"; // Update with your write API key
+const char* readApiKey = "your_read_api_key"; // Update with your read API key
 ```
 
 </details>
 
-* MQTT and ThingSpeak Setup, a detailed explanation can be found further down the page.
 
 ---
 
@@ -100,9 +111,8 @@ This Python script calculates the Penman evapotranspiration (ET) value using dat
 **Required Arduino Libraries:**  
 WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h, HTTPClient.h, and PubSubClient.h
 
----
 
-**If you use the code, pay attention to the following settings:**  
+**If you are using the code, make the following adjustments:** 
 
 <details>
 <summary>Click to toggle Penman calculation Parameters</summary>
@@ -111,53 +121,16 @@ WiFi.h, Wire.h, Adafruit_SHT31.h, Adafruit_ADS1X15.h, ThingSpeak.h, NTPClient.h,
 # Penman calculation Parameters (Elevation, Latitude and Pressure) Adjustment
 elevation, latitude = 31.0, pyet.utils.deg_to_rad(32.0073)  # Replace with local elevation and latitude
 pressure = 101.3  # Replace with local pressure
-```
 
-</details>
-
----
-
-<details>
-<summary>Click to toggle MQTT Setup</summary>
-
-```cpp
-// MQTT Setup
-const char* mqtt_server = "your_mqtt_broker_ip"; // Update with your MQTT broker IP
-const int mqtt_port = 1883; // Update the broker port if needed
-const char* mqtt_user = "your_mqtt_username"; // Update with your MQTT username
-const char* mqtt_password = "your_mqtt_password"; // Update with your MQTT password
-const char* mqttTopic = "/new/location/irrigation/solenoid"; // Update the MQTT topic
-```
-
-</details>
-
----
-
-<details>
-<summary>Click to toggle ThingSpeak Setup</summary>
-
-```cpp
-// ThingSpeak Setup
-unsigned long channelID = your_channel_id; // Update with your ThingSpeak channel ID
-const char* writeApiKey = "your_write_api_key"; // Update with your write API key
-const char* readApiKey = "your_read_api_key"; // Update with your read API key
-```
-
-</details>
-
----
-
-<details>
-<summary>Click to toggle Python script adjustments</summary>
-
-```python
-# In the Python script (et_penman.py), update the following lines with your ThingSpeak credentials
+# ThingSpeak Setup
 channel_id = "your_channel_id"  # Replace with your channel ID
 read_api_key = "your_read_api_key"  # Replace with your read API key
 write_api_key = "your_write_api_key"  # Replace with your write API key
 ```
 
 </details>
+
+---
 
 
 
