@@ -69,7 +69,7 @@ requests, pandas, pyet
 **If you are using the code, make the following adjustments:** 
 
 <details>
-<summary>Click to toggle adjustments <code>code</code></summary>
+<summary>Click to toggle adjustments</summary>
 
 ```cpp
 // Wi-Fi Adjustment
