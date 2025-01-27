@@ -64,12 +64,12 @@ We have two separate code files:
 This code runs on the ESP32 to manage sensors, control the irrigation system via MQTT, and interact with ThingSpeak for data logging and retrieval.
 
 **Required Python Libraries:** requests, pandas, pyet 
+**If you are using the code, make the following adjustments:** 
 
-**If you use the code, pay attention to the following settings:** 
 <details>
-<summary>Click to toggle contents of `code`</summary>
+<summary>Click to toggle adjustments <code>code</code></summary>
 
-```
+```cpp
 // Wi-Fi Adjustment
 const char* ssid = "your_wifi_name"; // Change to the new WiFi network name
 const char* password = "your_wifi_password"; // Change to the new WiFi password
@@ -84,7 +84,7 @@ float area = 1.5; // The area of the irrigation zone in square meters, modify as
 float efficiency = 0.9; // Irrigation system efficiency (e.g., 0.9 for 90% efficiency)
 float flow_rate = 4; // Flow rate of the irrigation system in liters per hour per dripper
 int num_drips = 2; // Number of drippers in the irrigation system, update accordingly
-```
+
 </details>
 
 
