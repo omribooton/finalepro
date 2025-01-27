@@ -29,14 +29,14 @@ def fetch_data():
 
 def save_and_process_data(data):
     df = pd.DataFrame([{**{"Timestamp": entry["created_at"]}, **{fields[key]: entry.get(key, "") for key in fields}} for entry in data])
-    df.to_csv("thingspeak_data.csv", mode='a', header=not bool(pd.read_csv("thingspeak_data.csv", nrows=1).empty), index=False)
+    #df.to_csv("thingspeak_data.csv", mode='a', header=not bool(pd.read_csv("thingspeak_data.csv", nrows=1).empty), index=False)
     
     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
     df.set_index('Timestamp', inplace=True)
     df = df.apply(pd.to_numeric, errors='coerce')
     
     daily_mean = df.resample('24H').mean().fillna(method='ffill')
-    daily_mean.to_csv("thingspeak_24h_mean.csv")
+    #daily_mean.to_csv("thingspeak_24h_mean.csv")
     
     return daily_mean.tail(1)  # Get the most recent entry for Penman calculation
 
