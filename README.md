@@ -79,17 +79,17 @@ This code runs on the ESP32 to manage sensors, control the irrigation system via
 
 * Irrigation Calculation Parameters Adjustment:
 
-float ET = 2.4;  // Default evapotranspiration value, adjust based on climate conditions
+  float ET = 2.4;  // Default evapotranspiration value, adjust based on climate conditions
 
-float Kc = 1.6;  // Crop coefficient, change according to the specific crop type
+  float Kc = 1.6;  // Crop coefficient, change according to the specific crop type
 
-float area = 1.5;  // The area of the irrigation zone in square meters, modify as needed
+  float area = 1.5;  // The area of the irrigation zone in square meters, modify as needed
 
-float efficiency = 0.9;  // Irrigation system efficiency (e.g., 0.9 for 90% efficiency)
+  float efficiency = 0.9;  // Irrigation system efficiency (e.g., 0.9 for 90% efficiency)
 
-float flow_rate = 4;  // Flow rate of the irrigation system in liters per hour per dripper
+  float flow_rate = 4;  // Flow rate of the irrigation system in liters per hour per dripper
 
-int num_drips = 2;  // Number of drippers in the irrigation system, update accordingly
+  int num_drips = 2;  // Number of drippers in the irrigation system, update accordingly
 
 
 
