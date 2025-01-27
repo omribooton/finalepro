@@ -22,12 +22,12 @@ Using the ET values, the system determines the required irrigation duration and 
 
 
 **Hardware:**
-* ESP 32  https://www.espressif.com/en/products/socs/esp32
-* RY-EBN-1 PAR Sensor https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html
-* SHT 31 https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385
-* WIND
-* ADS 1115 https://www.adafruit.com/product/1083
-* 12V Power source https://www.iec.co.il/home
+* ESP 32  [Link](https://www.espressif.com/en/products/socs/esp32)
+* RY-EBN-1 PAR Sensor [Link](https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html)
+* SHT 31 [Link](https://wiki.dfrobot.com/SHT31_Temperature_Humidity_Sensor_Weatherproof_SKU_SEN0385)
+* WIND [Link]()
+* ADS 1115 [Link](https://www.adafruit.com/product/1083)
+* 12V Power source [Link](https://www.iec.co.il/home)
 * Electric box
 * Electric wires
 * Solder breadboard
