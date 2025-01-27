@@ -114,9 +114,13 @@ const char* readApiKey = "your_read_api_key"; // Update with your read API key
 
 
 * The ADS1115 is a 16-bit ADC, meaning it provides 65,536 discrete levels (from -32,768 to +32,767 in differential mode).
-  We measured an output of 0.5V between strong illuminance and darkness. 
+  
+  We measured an output of 0.5V between strong illuminance and darkness.
+  
   For a gain setting of GAIN_FOUR the resolution per bit can be calculated as:
+  
   1.024V/65536 =0.015625 mV per step.
+  
   The division by 0.260 (from the sensetivity of the sensor: 260.03 μV/μ*mol*m2*s ) converts the voltage to radiation in W/m² for the Penman 
   equation.
   
