@@ -19,8 +19,6 @@ Using the ET values, the system determines the required irrigation duration and 
 
 * In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through vcc and GND.
 
-
-
 **Hardware:**
 * [ESP 32](https://www.espressif.com/en/products/socs/esp32)
 * [RY-EBN-1 PAR Sensor](https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html)
@@ -31,6 +29,27 @@ Using the ET values, the system determines the required irrigation duration and 
 * Electric box
 * Electric wires
 * Solder breadboard
+
+
+    <a href="https://github.com/user-attachments/assets/7429dfe7-0586-4658-b7b3-06668f8e92d7" target="_blank">
+    <img src="https://github.com/user-attachments/assets/7429dfe7-0586-4658-b7b3-06668f8e92d7" alt="WIND" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
+</div>
+  <a href="https://github.com/user-attachments/assets/8976c230-f755-48e7-b685-c276087f597b" target="_blank">
+    <img src="https://github.com/user-attachments/assets/8976c230-f755-48e7-b685-c276087f597b" alt="SHT" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
+
+  <a href="https://github.com/user-attachments/assets/26b3903f-d668-451e-8018-17017d28efcf" target="_blank">
+    <img src="https://github.com/user-attachments/assets/26b3903f-d668-451e-8018-17017d28efcf" alt="PAR" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <a href="https://github.com/user-attachments/assets/e241bb1f-98f5-4c57-9f31-6679799dc703" target="_blank">
+    <img src="https://github.com/user-attachments/assets/e241bb1f-98f5-4c57-9f31-6679799dc703" alt="ALL" width="250" style="border: 2px solid #000; border-radius: 5px;"/>
+  </a>
+
+
+
 
 
 
