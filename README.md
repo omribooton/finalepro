@@ -1,5 +1,9 @@
 **Agrotech Lab finan project: Automated Irrigation System Using Evapotranspiration Data**
 
+<img width="246" alt="esp32" src="https://github.com/user-attachments/assets/5f7b359c-5499-44b1-b602-41057d490905" />
+
+
+
 **Introduction:**
 
 This project aims to develop an automated irrigation system that leverages evapotranspiration (ET) data to optimize water usage efficiently.
@@ -16,6 +20,7 @@ Using the ET values, the system determines the required irrigation duration and 
 * In the Sketch there is no ESP 32 connection for electricity. The ESP 32 is connected to 5V through vcc and GND.
 
 
+
 **Hardware:**
 * ESP 32  https://www.espressif.com/en/products/socs/esp32
 * RY-EBN-1 PAR Sensor https://www.compactweathersensor.com/solar-radiation-sensors/ry-ebn-1-par-sensor.html
@@ -29,5 +34,6 @@ Using the ET values, the system determines the required irrigation duration and 
 
 
 
+**Code:**
 
   
