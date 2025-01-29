@@ -39,7 +39,7 @@ float sensorValue, voltage, wind_speed;
 float ET = 2.4; // AVG ET in israel (winter)
 float Kc = 1.6; // Crop Coefficient for Mint
 float area = 1.5; // Area in m²
-float efficiency = 0.9;
+float efficiency = 0.8;
 float flow_rate = 4; // L/hour
 float wateringTime; // Seconds
 int num_drips = 2;
