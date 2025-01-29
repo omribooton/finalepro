@@ -23,7 +23,7 @@ const char* mqttTopic = "/greenhouse/outside/irrigation/solenoid8";
 
 PubSubClient mqttClient(client);
 
-// NTP Time Synchronization
+// Time Synchronization
 const long utcOffsetInSeconds = 3600 * 2; // UTC+2
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", utcOffsetInSeconds);
