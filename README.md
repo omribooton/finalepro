@@ -161,9 +161,10 @@ write_api_key = "your_write_api_key"  # Replace with your write API key
 **Experiment:**  
 
 **thingspeak data:**  
-<img width="419" alt="ts" src="https://github.com/user-attachments/assets/946bfa38-f55b-46bd-bf19-354a687b4568" />
-
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/946bfa38-f55b-46bd-bf19-354a687b4568" width="45%" />
+  <img src="https://github.com/user-attachments/assets/b0f795bb-3a94-4921-b531-6846dfc9ce71" width="45%" />
+</p>
 
 
 
