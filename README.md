@@ -125,7 +125,7 @@ const char* readApiKey = "your_read_api_key"; // Update with your read API key
   
   For a gain setting of GAIN_FOUR the resolution per bit can be calculated as:
   
-  1.024V/65536 = 0.015625 mV per step.
+  2*1.024V/65536 = 0.03125 mV per step.
   
   The division by 0.260 (from the sensetivity of the sensor: 260.03 μV/μ*mol*m2*s ) converts the voltage to radiation in W/m² for the Penman 
   equation.
