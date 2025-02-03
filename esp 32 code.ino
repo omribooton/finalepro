@@ -95,7 +95,7 @@ void readETFromThingSpeak() {
 // reading the sensor every 10 min
 void readSensorsAndSendData() {
     int16_t rad_results = ads.readADC_Differential_0_1();
-    float radiation = ((rad_results * 0.015625) / 0.260);
+    float radiation = ((rad_results * 0.03125) / 0.260);
     float temperature = sht31.readTemperature();
     float humidity = sht31.readHumidity();
     sensorValue = analogRead(WIND_SENSOR_PIN);
