@@ -7,7 +7,7 @@
 #include <WiFiUdp.h>
 #include <HTTPClient.h>
 #include <PubSubClient.h> // For MQTT communication
-
+ 
 // WiFi credentials
 const char* ssid = "agrotech";
 const char* password = "1Afuna2gezer";
